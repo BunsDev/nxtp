@@ -5,6 +5,7 @@ import {
   ajv,
   ChainData,
   TChainConfig,
+  TLogLevel,
   TOptionalPeripheralConfig,
   TRequiredPeripheralConfig,
   TServerConfig,
@@ -38,15 +39,7 @@ export const TPollingConfig = Type.Object({
 
 export const NxtpRouterConfigSchema = Type.Object({
   chains: Type.Record(Type.String(), TChainConfig),
-  logLevel: Type.Union([
-    Type.Literal("fatal"),
-    Type.Literal("error"),
-    Type.Literal("warn"),
-    Type.Literal("info"),
-    Type.Literal("debug"),
-    Type.Literal("trace"),
-    Type.Literal("silent"),
-  ]),
+  logLevel: TLogLevel,
   mnemonic: Type.Optional(Type.String()),
   web3SignerUrl: Type.Optional(Type.String()),
   redis: TOptionalPeripheralConfig,

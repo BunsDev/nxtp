@@ -1,0 +1,49 @@
+{
+  "name": "@connext/roots-cacher",
+  "version": "0.2.0-beta.20",
+  "description": "",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*",
+    "src/**/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -i -k -n 'app,tsc' -c 'green,cyan' 'node dist/index.js' 'echo hello'",
+    "start": "concurrently -i -k -n 'app,tsc' -c 'green,cyan' 'node dist/index.js' 'echo hello'",
+    "lint": "eslint ./src --ext .ts --env node",
+    "test": "nyc ts-mocha --check-leaks --exit --timeout 60000 'test/**/*.spec.ts'",
+    "clean": "rimraf ./dist ./tsconfig.tsBuildInfo",
+    "build": "tsc --build ./tsconfig.build.json",
+    "verify": "yarn test && yarn clean && yarn build && yarn lint --max-warnings 0",
+    "purge": "yarn clean && rimraf ./coverage ./node_modules",
+    "tsp": "yarn run tsp:root \"$@\" --cwd $(pwd)"
+  },
+  "author": "Connext",
+  "license": "ISC",
+  "dependencies": {
+    "@connext/nxtp-txservice": "workspace:*",
+    "@connext/nxtp-utils": "workspace:*",
+    "@sinclair/typebox": "0.24.20",
+    "dd-trace": "2.11.0",
+    "dotenv": "16.0.1",
+    "ethers": "5.6.9"
+  },
+  "devDependencies": {
+    "@types/pg": "8.6.5",
+    "concurrently": "7.3.0",
+    "eslint": "8.20.0",
+    "nodemon": "2.0.19",
+    "nyc": "15.1.0",
+    "pg-mem": "2.6.3",
+    "pino-pretty": "8.1.0",
+    "rimraf": "3.0.2",
+    "sinclair": "0.2.0",
+    "sinon": "14.0.0",
+    "ts-mocha": "10.0.0",
+    "ts-node": "10.9.1",
+    "tslib": "2.4.0",
+    "typescript": "4.7.4"
+  },
+  "gitHead": "937a7cde93e6ac1e151c6374f48adf83d3fa4ec6",
+  "stableVersion": "0.2.0-alpha.0"
+}

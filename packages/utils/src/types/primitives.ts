@@ -28,6 +28,8 @@ export const TLogLevel = Type.Union([
   Type.Literal("silent"),
 ]);
 
+export const TEnvironment = Type.Union([Type.Literal("staging"), Type.Literal("production")]);
+
 export const TAssetDescription = Type.Object({
   name: Type.String(),
   address: TAddress,

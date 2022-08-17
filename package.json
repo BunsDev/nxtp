@@ -26,6 +26,7 @@
     "packages/agents/sdk",
     "packages/agents/relayer",
     "packages/agents/lighthouse",
+    "packages/agents/roots/cacher",
     "packages/integration",
     "packages/examples/sdk-server"
   ],
